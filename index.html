@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="css/mystyle.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="css/mystyle.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+    <!--<script src="js/myjs.js"></script>-->
+</head>
+    <!------ Include the above in your HEAD tag ---------->
+    <body>
+        <div class="container post" id="post"></div>
+        <script type="mustache/x-tmpl" id="thisID">
+            <div class="row">
+                {{#posts}}
+                <div>
+                    <div class="[ panel panel-default ] panel-google-plus">
+                        <div class="panel-heading">
+                            <img class="[ img-circle pull-left ]" src={{profilePicture}} alt="Mouse0270" />
+                            <h3>{{profileName}}</h3>
+                            <!--<h5><span>Shared publicly</span> - <span>Jun 25, 2014</span> </h5>-->
+                        </div>
+                        <div class="panel-body">
+                            <p>{{postContent}}</p>
+                            <a class="panel-google-plus-image" href="https://plus.google.com/photos/115077481218689845626/albums/6028961040749409985/6028961040650432498">
+                                <img src={{imageSource}} />
+                            </a>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div class="panel panel-default widget">
+                                    <div class="panel-heading">
+                                        <span class="glyphicon glyphicon-comment"></span>
+                                        <h3 class="panel-title">Comments</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul class="list-group">
+                                            {{#comments}}
+                                                <li class="list-group-item">
+                                                <div class="row">
+                                                    <div class="col-xs-2 col-md-1">
+                                                        <img src={{profilePicture}} class="img-circle img-responsive" alt="" /></div>
+                                                    <div class="col-xs-10 col-md-11">
+                                                        <div>
+                                                            <div class="mic-info">
+                                                                <p href="#"> By: {{username}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-text">
+                                                            {{commentText}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            {{/comments}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/posts}}
+            </div>
+        </script>
+        <script>
+            var data = { "posts": [
+                {
+                    "profileName": "BBC News",
+                    profilePicture : "https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg",
+                    postContent : "This is just a test",
+                    imageSource : "https://s3.us-east-2.amazonaws.com/data-viz-project/1.jpg",
+                    comments : [
+                        {
+                            username: "Bagher",
+                            profilePicture: "http://placehold.it/80",
+                            commentText: "this is amazing!"
+                        },
+                        {
+                            username: "Behati",
+                            profilePicture: "http://placehold.it/80",
+                            commentText: "Amen Sister!"
+                        }
+                    ]
+                },
+                {
+                    "profileName": "CNN",
+                    profilePicture : "https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg",
+                    postContent : "This is just a test",
+                    imageSource : "https://s3.us-east-2.amazonaws.com/data-viz-project/1.jpg",
+                    comments : [
+                        {
+                            username: "Bagher",
+                            profilePicture: "http://placehold.it/80",
+                            commentText: "this is amazing!"
+                        },
+                        {
+                            username: "Behati",
+                            profilePicture: "http://placehold.it/80",
+                            commentText: "Amen Sister!"
+                        }
+                    ]
+                },
+                {
+                    "profileName": "Anonymous Source",
+                    profilePicture : "https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg",
+                    postContent : "This is just a test",
+                    imageSource : "https://s3.us-east-2.amazonaws.com/data-viz-project/1.jpg",
+                    comments : [
+                        {
+                            username: "Bagher",
+                            profilePicture: "http://placehold.it/80",
+                            commentText: "this is amazing!"
+                        },
+                        {
+                            username: "Behati",
+                            profilePicture: "http://placehold.it/80",
+                            commentText: "Amen Sister!"
+                        }
+                    ]
+                }
+            ]};
+            var tmpl = document.getElementById("thisID").innerHTML;
+            var info = Mustache.to_html(tmpl, data);
+            document.getElementById("post").innerHTML = info;
+        </script>
+    </body>
+</html>
