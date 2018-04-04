@@ -119,6 +119,7 @@ body {
 }
 
 .panel-google-plus > .panel-footer {
+    background-color: #0202024f;
     font-size: 14px;
     font-weight: 700;
     min-height: 54px;

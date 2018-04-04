@@ -18,6 +18,7 @@
     <!------ Include the above in your HEAD tag ---------->
     <body>
         <div class="container post" id="post"></div>
+        <button>click me!</button>
         <script type="mustache/x-tmpl" id="thisID">
             <div class="row">
                 {{#posts}}
@@ -65,15 +66,36 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="rating" id="stars">
+                                <div id="temp" class="btn-group colors" data-toggle="buttons">
+                                    <label id="s5" class="btn btn-default">
+                                        <input id="star-5" type="radio" name= "{{postId}}" value="-2" autocomplete="off"> Totally Disagree
+                                    </label>
+                                    <label id="s4" class="btn btn-default">
+                                        <input id="star-4" type="radio" name="{{postId}}" value="-1" autocomplete="off"> Somewhat Disagree
+                                    </label>
+                                    <label id="s3" class="btn btn-default">
+                                        <input id="star-3" type="radio" name="{{postId}}" value="0" autocomplete="off"> Neutral
+                                    </label>
+                                    <label id="s2" class="btn btn-default">
+                                        <input id="star-2" type="radio" name="{{postId}}" value="1" autocomplete="off"> Somewhat Agree
+                                    </label>
+                                    <label id="s1" class="btn btn-default">
+                                        <input id="star-1" type="radio" name="{{postId}}" value="2" autocomplete="off"> Totally Agree
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {{/posts}}
             </div>
+
         </script>
         <script>
             var data = { "posts": [
                 {
+                    postId: "1",
                     "profileName": "BBC News",
                     profilePicture : "https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg",
                     postContent : "This is just a test",
@@ -92,6 +114,7 @@
                     ]
                 },
                 {
+                    postId: "2",
                     "profileName": "CNN",
                     profilePicture : "https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg",
                     postContent : "This is just a test",
@@ -110,6 +133,7 @@
                     ]
                 },
                 {
+                    postId: "3",
                     "profileName": "Anonymous Source",
                     profilePicture : "https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg",
                     postContent : "This is just a test",
